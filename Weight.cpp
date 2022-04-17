@@ -22,3 +22,17 @@ const float SLUGS_IN_A_POUND = 0.031081;
 const string Weight::POUND_LABEL = "Pound";
 const string Weight::KILO_LABEL  = "Kilo" ;
 const string Weight::SLUG_LABEL  = "Slug" ;
+
+///////////////////
+///Constructors
+//////////////////
+
+//First instance
+Weight::Weight() noexcept {
+    bIsKnown = false;
+    bHasMax  = false;
+    unitOfWeight = POUND;
+    weight = UNKNOWN_WEIGHT;
+    MaxWeight = UNKNOWN_WEIGHT;
+}
+

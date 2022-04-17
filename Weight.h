@@ -41,6 +41,17 @@ private:
 
 public:
     //Constructors
+    Weight() noexcept;
+    Weight( float newWeight ) noexcept;
+    Weight( UnitOfWeight newUnitOfWeight ) noexcept;
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight );
+    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight );
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight );
+
+public:
+    //Getters and setters
     
+
+
 };
 
