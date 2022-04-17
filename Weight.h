@@ -10,12 +10,37 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
+#include <iostream>
+
+using namespace std;
 
 class Weight {
-    enum typeOfWeight { POUND, KILO, SLUG };
+public:
+    //Enum and consts
+    enum UnitOfWeight { POUND, KILO, SLUG };
 
+    //Weight conversions
     static const float UNKNOWN_WEIGHT;
     static const float KILOS_IN_A_POUND;
     static const float SLUGS_IN_A_POUND;
+
+    //Unit labels
+    static const string POUND_LABEL;
+    static const string KILO_LABEL;
+    static const string SLUG_LABEL;
+
+private:
+    //Private member variables
+    bool bIsKnown;
+    bool bHasMax;
+
+    enum UnitOfWeight unitOfWeight;
+
+    float weight;
+    float MaxWeight;
+
+public:
+    //Constructors
+    
 };
 
