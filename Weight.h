@@ -10,9 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include <iostream>
-
-using namespace std;
+#include <string>
 
 class Weight {
 public:
@@ -25,9 +23,9 @@ public:
     static const float SLUGS_IN_A_POUND;
 
     //Unit labels
-    static const string POUND_LABEL;
-    static const string KILO_LABEL;
-    static const string SLUG_LABEL;
+    static const std::string POUND_LABEL;
+    static const std::string KILO_LABEL;
+    static const std::string SLUG_LABEL;
 
 private:
     //Private member variables
@@ -42,15 +40,29 @@ private:
 public:
     //Constructors
     Weight() noexcept;
-    Weight( float newWeight ) noexcept;
+    Weight( float newWeight );
     Weight( UnitOfWeight newUnitOfWeight ) noexcept;
     Weight( float newWeight, UnitOfWeight newUnitOfWeight );
+    Weight( float newWeight, float newMaxWeight );
     Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight );
     Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight );
 
 public:
     //Getters and setters
-    
+    bool isWeightKnown() const noexcept;
+    bool hasMaxWeight() const noexcept;
+
+    float getWeight() const noexcept;
+//    float getWeight(UnitOfWeight weightUnits ) const noexcept;
+    float getMaxWeight() const noexcept;
+    UnitOfWeight getWeightUnit() const noexcept;
+
+    void setWeight( float newWeight );
+    void setWeight( float newWeight, UnitOfWeight weightUnits );
+
+    bool isWeightValid( float checkWeight ) const noexcept;
+    bool validate() const noexcept;
+    void dump() const noexcept;
 
 
 };
