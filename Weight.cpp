@@ -108,7 +108,7 @@ float Weight::getWeight() const noexcept {
 float Weight::getWeight( Weight::UnitOfWeight weightUnits ) const noexcept {
     assert( isWeightValid( weight ));
     float fullWeight = convertWeight( weight, unitOfWeight, weightUnits );
-    return fullWeight
+    return fullWeight;
 }
 
 float Weight::getMaxWeight() const noexcept {
@@ -152,5 +152,30 @@ void Weight::dump() const noexcept {
     std::cout << "Unit:       " << unitOfWeight << std::endl;
     std::cout << "Weight:     " << weight    << std::endl;
     std::cout << "Max Weight: " << MaxWeight << std::endl;
+}
+
+//Override equals to
+bool Weight::operator==(const Weight &rhs_Weight) const {
+    float leftWeight = convertWeight( weight, unitOfWeight, POUND );
+    float rightWeight = convertWeight( rhs_Weight.weight, rhs_Weight.unitOfWeight, POUND);
+    if( leftWeight == rightWeight ) {
+        return true;
+    }
+    return false;
+};
+
+//Override less than
+bool Weight::operator<( const Weight &rhs_Weight) const {
+    float leftWeight = convertWeight( weight, unitOfWeight, POUND);
+    float rightWeight = convertWeight( rhs_Weight.weight, rhs_Weight.unitOfWeight, POUND );
+    if( leftWeight < rightWeight ) {
+        return true;
+    }
+    return false;
+}
+
+Weight &Weight::operator+=(float rhs_addToWeight) {
+    weight += rhs_addToWeight;
+    return *this;
 }
 
