@@ -60,10 +60,24 @@ public:
     void setWeight( float newWeight );
     void setWeight( float newWeight, UnitOfWeight weightUnits );
 
+    //Checks
     bool isWeightValid( float checkWeight ) const noexcept;
     bool validate() const noexcept;
     void dump() const noexcept;
 
+public:
+    //Overrides
+    bool operator==(const Weight &rhs_Weight) const;
+    bool operator<(const Weight &rhs_Weight) const;
+    Weight & operator+=(float rhs_addToWeight);
 
+    //Statics
+    static float fromKilogramToPound(float kilogram) noexcept;
+    static float fromPoundToKilogram(float pound) noexcept;
+    static float fromSlugToPound(float slug) noexcept;
+    static float fromPoundToSlug(float pound) noexcept;
+    static float convertWeight(float fromWeight, UnitOfWeight fromUnit, UnitOfWeight toUnit) noexcept;
+
+    void setMaxWeight(float newMaxWeight);
 };
 
