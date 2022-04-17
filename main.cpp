@@ -20,9 +20,18 @@ int main() {
     Weight weight = Weight(18.0);
     weight.dump();
 
-    Weight weight2 = Weight(10, Weight:: KILO, 10);
+    Weight weight2 = Weight(10.0, Weight:: KILO, 10.0);
     weight2.dump();
 
-    cout << weight2.getWeight(Weight::POUND);
+
+    Weight weight3 = Weight( 36.0, Weight::SLUG, 50.0);
+    cout << weight3.getWeight();
+    weight3.setWeight(45.0);
+    cout << weight3.getWeight(Weight::POUND);
+
+//    Weight weight4 = Weight(10.0, 15.0);
+//    weight4.setWeight(20.0);
+//    weight4.isWeightValid(300.0);
+
     return 0;
 }
