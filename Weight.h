@@ -53,7 +53,7 @@ public:
     bool hasMaxWeight() const noexcept;
 
     float getWeight() const noexcept;
-//    float getWeight(UnitOfWeight weightUnits ) const noexcept;
+    float getWeight(UnitOfWeight weightUnits ) const noexcept;
     float getMaxWeight() const noexcept;
     UnitOfWeight getWeightUnit() const noexcept;
 

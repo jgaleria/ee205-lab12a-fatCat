@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Weight.h"
 #include <iostream>
+#include <cassert>
 
 //Weight conversions
 const float UNKNOWN_WEIGHT   = -1;
@@ -100,14 +101,15 @@ bool Weight::hasMaxWeight() const noexcept {
 }
 
 float Weight::getWeight() const noexcept {
-
+    assert( isWeightValid( weight ));
     return weight;
 }
 
-//float Weight::getWeight( Weight::UnitOfWeight weightUnits ) const noexcept {
-//    float fullWeight = convertWeight( weight, unitOfWeight, weightUnits )
-//    return fullWeight
-//}
+float Weight::getWeight( Weight::UnitOfWeight weightUnits ) const noexcept {
+    assert( isWeightValid( weight ));
+    float fullWeight = convertWeight( weight, unitOfWeight, weightUnits );
+    return fullWeight
+}
 
 float Weight::getMaxWeight() const noexcept {
     return MaxWeight;
@@ -129,6 +131,26 @@ void Weight::setWeight( float newWeight, Weight::UnitOfWeight weightUnits ) {
 ///////////////////////
 /// Checks and methods
 ///////////////////////
-//bool isWeightValid( float checkWeight ) const noexcept {
-//
-//}
+bool Weight::isWeightValid( float checkWeight ) const noexcept {
+    assert( (checkWeight > 0 ) || checkWeight == Weight::UNKNOWN_WEIGHT );
+    if( bHasMax ) {
+        assert(checkWeight <= MaxWeight);
+    }
+    return true;
+}
+
+bool Weight::validate() const noexcept {
+    assert(isWeightValid(weight));
+    assert(isWeightValid(MaxWeight));
+    return true;
+}
+
+void Weight::dump() const noexcept {
+    std::cout << "===================================" << std::endl;
+    std::cout << "bIsKnown:   " << bIsKnown << std::endl;
+    std::cout << "bHasMax:    " << bHasMax  << std::endl;
+    std::cout << "Unit:       " << unitOfWeight << std::endl;
+    std::cout << "Weight:     " << weight    << std::endl;
+    std::cout << "Max Weight: " << MaxWeight << std::endl;
+}
+
