@@ -13,9 +13,9 @@
 #include <cassert>
 
 //Weight conversions
-const float UNKNOWN_WEIGHT   = -1;
-const float KILOS_IN_A_POUND = 0.453592;
-const float SLUGS_IN_A_POUND = 0.031081;
+const float Weight::UNKNOWN_WEIGHT   = -1;
+const float Weight::KILOS_IN_A_POUND = 0.453592;
+const float Weight::SLUGS_IN_A_POUND = 0.031081;
 
 //Unit labels
 const std::string Weight::POUND_LABEL = "Pound";

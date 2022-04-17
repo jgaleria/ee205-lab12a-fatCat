@@ -9,10 +9,20 @@
 /// @date   16_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
+#include "Weight.h"
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    cout << "Hello World" << endl;
+    cout << "Starting Fat Cat" << endl;
+
+    Weight weight = Weight(18.0);
+    weight.dump();
+
+    Weight weight2 = Weight(10, Weight:: KILO, 10);
+    weight2.dump();
+
+    cout << weight2.getWeight(Weight::POUND);
+    return 0;
 }
